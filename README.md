@@ -1,59 +1,80 @@
-# ActorCloud
-
-##  Introduction
-
-**ActorCloud** is an IoT platform that provides one-stop platform services for enterprises with low-power IoT networks. It provides multiple protocol access, message flow management, data parsing and data processing capabilities for devices on a secure and reliable basis.
-
-The platform provides basic device management functions to connect and manage massive devices, realize message communication and data collection persistence of devices, integrate rule engine and data visualization management, flexibly open multiple privilege level management and control API,  quickly develop upper layers through API, and achieve multi-end access and device remote control.
-
-- Multi-protocol access: Support low-power standard protocols such as MQTT, CoAP, LoRaWAN and Websocket, and adapt to mainstream Wi-Fi modules, NB-IoT modules, LoRa gateways and various industrial gateways in the  low-power scenarios;
-- Device management: Terminal registration opening and life cycle management, provide continuous monitoring of status, faults, and reported data;
-- Data parsing: No need to change the data reporting format of the device, and support writing decoding plug-in for parsing in the cloud;
-- Rule Engine: Based on Pulsar, built-in flexible SQL expressions and rich processing functions, realize the real-time parsing of terminal messages, high-speed persistence, rule processing and different types of action triggering;
-- Application enablement: Open rich REST API interface, with flexible and configurable application permissions, help enterprises quickly build various upper-layer applications;
-- Tenant management: Support multi-tenancy, and the data between tenants is completely isolated. Users in the tenant can be configured with different permissions and management domains.
-
-
-
-## Online Demo & Installation
-
-- Visit [https://demo.actorcloud.io](https://demo.actorcloud.io/) to try out the full functionality of **ActorCloud** online.
-- Visit [Actorcloud Deployment Documentation](https://docs.actorcloud.io/en/installation/base.html) to deploy ActorCloud locally for use.
-
-
-
-## Getting Started
-
-See the [Quick Start](https://docs.actorcloud.io/en/getting_started/quick_start.html) document for the basic use of ActorCloud
-
-
-
-## Device Access
-
-### Device Quick Access Guide
-For the steps of Accessing Devices to ActorCloud, please see the [Device quick access guide](<https://docs.actorcloud.io/en/getting_started/access_guide.html>).
-
-### Device Access Method
-
-Although the device messages in any access mode under the same account are interoperable, the appropriate access method needs to be selected according to the product requirements.
-
-The use of SSL/TLS generally results in higher security while reducing connection performance. Some devices are limited in performance and can only run lightweight CoAP clients, while WebSocket is recommended for real-time communication on the browser.
-
-##### Attached:  Access protocol supported by ActorCloud
-
-| Name                             | Access address                 | Description                              |
-| -------------------------------- | ------------------------------ | ---------------------------------------- |
-| MQTT                             | broker.actorcloud.io:1883      | Normal MQTT access                       |
-| MQTT/SSL                         | broker.actorcloud.io:8883      | SSL MQTT Access (one-way authentication) |
-| MQTT/SSL                         | broker.actorcloud.io:8884      | SSL MQTT Access (two-way authentication) |
-| CoAP(LwM2M)                      | broker.actorcloud.io:5683/mqtt | CoAP/LwM2M Access                        |
-| CoAP(LwM2M)/DTLS                 | broker.actorcloud.io:5684/mqtt | DTLS CoAP/LwM2M Access                   |
-| MQTT/WebSocket                   | broker.actorcloud.io:8083/mqtt | WebSocket Access                         |
-| MQTT/WebSocket/SSL               | broker.actorcloud.io:8084/mqtt | SSL WebSocket Access                     |
-| Private TCP transparent protocol | custom made                    | Private TCP transparent protocol         |
-
-
-
-## License
-
-ActorCloud is released under [Apache 2.0 License](https://github.com/actorcloud/ActorCloud/blob/master/LICENSE).
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">演员云</font></font></h1><a id="user-content-actorcloud" class="anchor" aria-label="永久链接：演员云" href="#actorcloud"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">介绍</font></font></h2><a id="user-content-introduction" class="anchor" aria-label="永久链接：简介" href="#introduction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ActorCloud</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个物联网平台，为拥有低功耗物联网网络的企业提供一站式平台服务。</font><font style="vertical-align: inherit;">它在安全可靠的基础上为设备提供多种协议接入、消息流管理、数据解析和数据处理能力。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">平台提供基础的设备管理功能，用于连接和管理海量设备，实现设备的消息通信和数据采集持久化，集成规则引擎和数据可视化管理，灵活开放多种权限级别的管控API，通过API快速开发上层，实现多端接入和设备远程控制。</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">多协议接入：支持MQTT、CoAP、LoRaWAN、Websocket等低功耗标准协议，适配低功耗场景主流Wi-Fi模块、NB-IoT模块、LoRa网关及各类工业网关；</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备管理：终端注册开放和生命周期管理，提供状态、故障、上报数据的持续监控；</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据解析：无需改变设备的数据上报格式，支持编写解码插件在云端解析；</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">规则引擎：基于Pulsar，内置灵活的SQL表达式和丰富的处理函数，实现终端消息的实时解析、高速持久化、规则处理和不同类型的动作触发；</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应用赋能：开放丰富的REST API接口，应用权限灵活可配置，帮助企业快速构建各类上层应用；</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">租户管理：支持多租户，租户之间数据完全隔离。</font><font style="vertical-align: inherit;">租户内的用户可以配置不同的权限和管理域。</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在线演示及安装</font></font></h2><a id="user-content-online-demo--installation" class="anchor" aria-label="永久链接：在线演示和安装" href="#online-demo--installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问</font></font><a href="https://demo.actorcloud.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://demo.actorcloud.io</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在线试用</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ActorCloud</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的全部功能。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问</font></font><a href="https://docs.actorcloud.io/en/installation/base.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Actorcloud部署文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，将ActorCloud部署到本地使用。</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h2><a id="user-content-getting-started" class="anchor" aria-label="永久链接：开始使用" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ActorCloud的基本使用</font><font style="vertical-align: inherit;">请参见</font></font><a href="https://docs.actorcloud.io/en/getting_started/quick_start.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速入门文档</font></font></a><font style="vertical-align: inherit;"></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备访问</font></font></h2><a id="user-content-device-access" class="anchor" aria-label="永久链接：设备访问" href="#device-access"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备快速接入指南</font></font></h3><a id="user-content-device-quick-access-guide" class="anchor" aria-label="永久链接：设备快速访问指南" href="#device-quick-access-guide"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备接入ActorCloud的步骤请参见</font></font><a href="https://docs.actorcloud.io/en/getting_started/access_guide.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备快速接入指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备接入方式</font></font></h3><a id="user-content-device-access-method" class="anchor" aria-label="永久链接：设备访问方法" href="#device-access-method"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">虽然同一账号下任何接入方式的设备消息都是可以互通的，但需要根据产品需求选择合适的接入方式。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 SSL/TLS 通常会提高安全性，但会降低连接性能。</font><font style="vertical-align: inherit;">有些设备性能有限，只能运行轻量级CoAP客户端，而建议使用WebSocket在浏览器上进行实时通信。</font></font></p>
+<div class="markdown-heading" dir="auto"><h5 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">附：ActorCloud支持的访问协议</font></font></h5><a id="user-content-attached--access-protocol-supported-by-actorcloud" class="anchor" aria-label="固定链接：附：ActorCloud支持的访问协议" href="#attached--access-protocol-supported-by-actorcloud"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<table>
+<thead>
+<tr>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">姓名</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问地址</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">描述</font></font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MQTT</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经纪人.actorcloud.io:1883</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正常 MQTT 访问</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MQTT/SSL</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经纪人.actorcloud.io:8883</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SSL MQTT 访问（单向身份验证）</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MQTT/SSL</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经纪人.actorcloud.io:8884</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SSL MQTT 访问（双向身份验证）</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CoAP(LwM2M)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经纪人.actorcloud.io:5683/mqtt</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CoAP/LwM2M 接入</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CoAP(LwM2M)/DTLS</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经纪人.actorcloud.io:5684/mqtt</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DTLS CoAP/LwM2M 接入</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MQTT/WebSocket</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经纪人.actorcloud.io:8083/mqtt</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WebSocket 访问</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MQTT/WebSocket/SSL</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经纪人.actorcloud.io:8084/mqtt</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SSL WebSocket 访问</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">私有TCP透明协议</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">定制</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">私有TCP透明协议</font></font></td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ActorCloud 是根据</font></font><a href="https://github.com/actorcloud/ActorCloud/blob/master/LICENSE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache 2.0 许可证</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布的。</font></font></p>
+</article></div>
